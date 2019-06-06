@@ -1,8 +1,8 @@
 package nl.frankivo.iracing
 
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class EventReaderTest {
   @Test

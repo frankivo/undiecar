@@ -18,7 +18,6 @@ object EventReader {
     val season = args.headOption.getOrElse(throw new Exception("No season defined")).toInt
     val url = BaseUrl + "/%d/".format(season)
 
-
     val doc = JsoupBrowser().get(url)
     parseContent(doc)
   }
@@ -35,7 +34,7 @@ object EventReader {
     val start = getTime(tr >> text("td.col-qualifying"))
     val end = start.plusHours(2).plusMinutes(30)
 
-    Race(id, name, start, end )
+    Race(id, name, start, end)
   }
 
   def getTime(td: String): LocalDateTime = {
@@ -44,7 +43,7 @@ object EventReader {
     LocalDateTime.of(toDigit(year), monthNameToNumber(month), toDigit(day), toDigit(hour), toDigit(minute))
   }
 
-  def toDigit(s: String) :Int = s.filter(_.isDigit).toInt
+  def toDigit(s: String): Int = s.filter(_.isDigit).toInt
 
   val monthNameToNumber: Map[String, Int] = Map(
     "Jan" -> 1,
