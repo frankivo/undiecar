@@ -1,0 +1,22 @@
+plugins {
+    id 'scala'
+}
+
+group 'nl.frankivo.iracing'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.12.8'
+    compile 'net.ruippeixotog:scala-scraper_2.12:2.1.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+}
+
+test {
+    useJUnitPlatform()
+}
