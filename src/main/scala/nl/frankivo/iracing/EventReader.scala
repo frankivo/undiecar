@@ -2,25 +2,13 @@ package nl.frankivo.iracing
 
 import java.time.LocalDateTime
 
-import net.ruippeixotog.scalascraper.browser.{Browser, JsoupBrowser}
+import net.ruippeixotog.scalascraper.browser.Browser
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.model._
 
 object EventReader {
-
-  case class Race(id: Int, name: String, start: LocalDateTime, end: LocalDateTime)
-
-  val BaseUrl: String = "https://undiecar.com/season/"
-
-  def main(args: Array[String]): Unit = {
-    val season = args.headOption.getOrElse(throw new Exception("No season defined")).toInt
-    val url = BaseUrl + "/%d/".format(season)
-
-    val doc = JsoupBrowser().get(url)
-    parseContent(doc)
-  }
 
   def parseContent(doc: Browser#DocumentType): List[Race] = {
     val schedule = doc >> element("#src-schedule")
@@ -38,7 +26,7 @@ object EventReader {
   }
 
   def getTime(td: String): LocalDateTime = {
-    val Array(time, _, _, month, day, year) = td.split(' ')
+    val Array(time: String, _, _, month, day, year) = td.split(' ')
     val Array(hour, minute) = time.split(':')
     LocalDateTime.of(toDigit(year), monthNameToNumber(month), toDigit(day), toDigit(hour), toDigit(minute))
   }
