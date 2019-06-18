@@ -19,13 +19,10 @@ object GraphiteCalender {
       .setStart(convertDateTime(race.start))
       .setEnd(convertDateTime(race.end))
 
-    println(event)
     GoogleCalender.insertEvent(event, calender.id)
   }
 
   def convertDateTime(dateTime: LocalDateTime): EventDateTime = {
-   println(dateTime.toString)
-
     new EventDateTime()
       .setDateTime(new DateTime(dateTime.format(DateTimeFormatter.ISO_DATE_TIME)))
       .setTimeZone("UTC")

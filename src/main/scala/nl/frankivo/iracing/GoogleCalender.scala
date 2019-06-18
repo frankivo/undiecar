@@ -12,7 +12,7 @@ import com.google.api.client.http.javanet.NetHttpTransport
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.client.util.DateTime
 import com.google.api.client.util.store.FileDataStoreFactory
-import com.google.api.services.calendar.model.{CalendarListEntry, Event, EventDateTime}
+import com.google.api.services.calendar.model.{CalendarListEntry, Event}
 import com.google.api.services.calendar.{Calendar, CalendarScopes}
 
 
@@ -66,23 +66,7 @@ object GoogleCalender {
       })
   }
 
-  def insertEvent(event: Event, calendarId: String = "primary"): Unit = {
-//
-//    var event = new Event().setSummary("Goog")
-//      .setLocation("800 Howard St., San Francisco, CA 94103")
-//      .setDescription("A chance to hear more about Google's developer products.")
-//
-//    val startDateTime = new DateTime("2019-06-19T09:00:00")
-//    val start = new EventDateTime().setDateTime(startDateTime).setTimeZone("UTC")
-//    event.setStart(start)
-//
-//    val endDateTime = new DateTime("2019-06-19T10:00:00")
-//    val end = new EventDateTime().setDateTime(endDateTime).setTimeZone("UTC")
-//    event.setEnd(end)
-
-    service.events.insert(calendarId, event).execute
-    System.out.printf("Event created: %s\n", event.getHtmlLink)
-  }
+  def insertEvent(event: Event, calendarId: String = "primary"): Event = service.events.insert(calendarId, event).execute
 
   def getCredentials(HTTP_TRANSPORT: NetHttpTransport): Credential = {
     val in = classOf[Nothing].getResourceAsStream(CREDENTIALS_FILE_PATH)

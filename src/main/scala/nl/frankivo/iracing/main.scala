@@ -1,7 +1,7 @@
 package nl.frankivo.iracing
 
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
-import nl.frankivo.iracing.EventReader.parseContent
+
 
 object main {
 
@@ -12,8 +12,8 @@ object main {
     val url = BaseUrl + "%d/".format(season)
 
     val doc = JsoupBrowser().get(url)
-    val races = parseContent(doc)
-    races.foreach(GraphiteCalender.createEvent)
+    EventReader.parseContent(doc)
+      .foreach(GraphiteCalender.createEvent)
   }
 }
 
