@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter
 import java.time.{Instant, LocalDateTime, ZoneId}
 
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
-import org.junit.jupiter.api.Test
+import org.junit.Test
 
 class GraphiteCalenderTest {
 

@@ -1,7 +1,7 @@
 package nl.frankivo.iracing
 
-import org.junit.jupiter.api.Assertions._
-import org.junit.jupiter.api.Test
+import org.junit.Assert.{assertNotNull, assertTrue}
+import org.junit.Test
 
 class GoogleCalendarTest {
 
