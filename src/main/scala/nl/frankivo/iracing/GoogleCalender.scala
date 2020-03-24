@@ -46,7 +46,7 @@ object GoogleCalender {
     GoogleCalender
       .getCalenderList
       .toList
-      .find(c => c.sumary.equals(calenderName))
+      .find(c => c.summary.equals(calenderName))
   }
 
   def getNextEvents(calendarId: String = "primary"): Array[CalenderEntry] = {
