@@ -25,7 +25,7 @@ class GoogleCalendarTest {
 
   @Test
   def testGetCalender(): Unit = {
-    val cal = GoogleCalender.getCalender("primary")
+    val cal = GoogleCalender.getCalender("Graphite Racing")
     assertTrue(cal.isDefined)
   }
 }
