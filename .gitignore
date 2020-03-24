@@ -1,3 +1,6 @@
+credentials.json
+/tokens
+
 # Scala
 *.class
 *.log
