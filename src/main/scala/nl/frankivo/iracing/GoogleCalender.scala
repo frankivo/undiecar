@@ -15,8 +15,7 @@ import com.google.api.client.util.store.FileDataStoreFactory
 import com.google.api.services.calendar.model.{CalendarListEntry, Event}
 import com.google.api.services.calendar.{Calendar, CalendarScopes}
 
-
-case class CalendarData(id: String, sumary: String, desc: Option[String])
+case class CalendarData(id: String, summary: String, desc: Option[String])
 
 case class CalenderEntry(id: String)
 
